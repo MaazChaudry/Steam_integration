@@ -1,0 +1,11 @@
+<!-- app/views/pages/home.html.erb -->
+<h1>Welcome to the Steam Game Viewer</h1>
+
+<% if user_signed_in? %>
+  <p>You're already signed in as <%= current_user.username %>!</p>
+  <%= link_to 'Go to your profile', profile_path %>
+<% else %>
+  <p>Please sign in using your Steam account to view your games.</p>
+<%= link_to 'Login with Steam', user_steam_omniauth_authorize_path, class: 'btn btn-primary', data: { turbo: false } %>
+<% end %>
+

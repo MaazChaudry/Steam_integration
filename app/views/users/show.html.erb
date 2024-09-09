@@ -1,0 +1,13 @@
+
+
+<h1><%= current_user.username %>'s Games</h1>
+<ul>
+  <% @games.each do |game| %>
+    <li>
+      <%= image_tag "https://media.steampowered.com/steamcommunity/public/images/apps/#{game['appid']}/#{game['img_logo_url']}.jpg" %>
+      <strong>Game ID:</strong> <%= game['appid'] %>
+      <strong>Playtime:</strong> <%= game['playtime_forever'] / 60 %> hours
+      <strong><%= game['name'] %></strong> - Played <%= game['playtime_forever'] / 60 %> hours
+    </li>
+  <% end %>
+</ul>
